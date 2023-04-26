@@ -32,34 +32,33 @@ def get_user_by_id(id):
     return user
 
 
-@router.post("/api/users", response_model=int)
+@router.post("/api/users")
 def create_user(payload_: Users):
     """Create a new user"""
     payload = payload_.dict()
     User.create(**payload)
 
 
+@router.patch("/api/users/{id}")
+def edit_user(id: int, payload_: Users):
+    """Update user info"""
+    payload = payload_.dict()
+    user = (
+        User.update(
+            name=payload["name"],
+            phonenumber=payload["phonenumber"],
+            email=payload["email"],
+            password=payload["password"],
+            fund=payload["fund"],
+            role=payload["role"]
+        )
+        .where(User.id == id)
+        .execute()
+    )
+    # number of changed rows
+    return user
 
-# @router.patch("/api/users/{id}", response_model=int)
-# def edit_user(id: int, payload_: User):
-#     """Update user info"""
-#     payload = payload_.dict()
-#     user = (
-#         User.update(
-#             name=payload["name"],
-#             phoneNumber=payload["phoneNumber"],
-#             email=payload["email"],
-#             password=payload["password"],
-#             fund=payload["fund"],
-#             role=payload["role"]
-#         )
-#         .where(User.id == id)
-#         .execute()
-#     )
-#     # number of changed rows
-#     return user
-#
-#
+
 @router.delete("/api/users/{id}")
 def delete_user(id: int):
     """Delete user"""

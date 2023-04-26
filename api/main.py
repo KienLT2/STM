@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from routers import user
+from routers import fund
 
 router = FastAPI()
 
@@ -11,3 +12,4 @@ def root_access():
 
 
 router.include_router(user.router)
+router.include_router(fund.router)

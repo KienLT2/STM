@@ -30,6 +30,6 @@ CREATE TABLE IF NOT EXISTS "fund"(
 );
 
 
-INSERT INTO "user"(name, email, password, fund, phonenumber, role, positionID) values ('Kien', 'kien@gmail.com', '1', '1000', '0123456789', '1', '1');
+INSERT INTO "fund"(id, totalamount) values (1, 123456789);
 
 
