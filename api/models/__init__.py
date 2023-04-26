@@ -6,11 +6,11 @@ from playhouse.postgres_ext import PostgresqlExtDatabase
 db_context_var: ContextVar[PostgresqlExtDatabase] = ContextVar("db")
 
 psql_db = PostgresqlExtDatabase(
-    "miniproject",
+    "postgres",
     user="postgres",
     password="postgres",
-    host="localhost",
-    port=4001,
+    host="db",
+    port=5432,
     autorollback=True,
 )
 

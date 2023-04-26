@@ -6,9 +6,9 @@ CREATE TABLE IF NOT EXISTS "user"(
     email text,
     password text,
     fund integer,
-    phoneNumber text,
+    phonenumber text,
     role ROLE,
-    positionID integer
+    positionid integer
 );
 
 CREATE TABLE IF NOT EXISTS "position"(
@@ -26,10 +26,10 @@ CREATE TABLE IF NOT EXISTS "schedule"(
 
 CREATE TABLE IF NOT EXISTS "fund"(
     id bigserial not null primary key,
-    totalAmount integer
+    totalamount integer
 );
 
 
-INSERT INTO "user"(name, email, password, fund, phoneNumber, role, positionID) values ('Kien', 'kien@gmail.com', '1', '1000', '0123456789', '1', '1');
+INSERT INTO "user"(name, email, password, fund, phonenumber, role, positionID) values ('Kien', 'kien@gmail.com', '1', '1000', '0123456789', '1', '1');
 
 

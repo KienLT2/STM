@@ -6,7 +6,7 @@ from . import PeeWeeBaseModel
 class User(PeeWeeBaseModel):
     id = p.BigAutoField(null=True)
     name = p.TextField()
-    phoneNumber = p.TextField()
+    phonenumber = p.TextField()
     email = p.TextField()
     password = p.TextField()
     fund = p.IntegerField()

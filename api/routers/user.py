@@ -9,9 +9,8 @@ router = APIRouter()
 
 
 class Users(BaseModel):
-    id: int
     name: str
-    phoneNumber: str
+    phonenumber: str
     email: str
     password: str
     fund: int
@@ -26,12 +25,19 @@ def get_all_users():
     return users
 
 
-# @router.post("/api/users", response_model=int)
-# def create_user(payload_: User):
-#     """Create a new user"""
-#     payload = payload_.dict()
-#     user = User.create(**payload)
-#     return user.id
+@router.get("/api/users/{id}")
+def get_user_by_id(id):
+    """Get user by id"""
+    user = User.get(User.id == id)
+    return user
+
+
+@router.post("/api/users", response_model=int)
+def create_user(payload_: Users):
+    """Create a new user"""
+    payload = payload_.dict()
+    User.create(**payload)
+
 
 
 # @router.patch("/api/users/{id}", response_model=int)
@@ -54,8 +60,8 @@ def get_all_users():
 #     return user
 #
 #
-# @router.delete("/api/users/{id}")
-# def delete_user(id: int):
-#     """Delete user"""
-#     user = User.get_by_id(id)
-#     user.delete_instance()
+@router.delete("/api/users/{id}")
+def delete_user(id: int):
+    """Delete user"""
+    user = User.get_by_id(id)
+    user.delete_instance()
