@@ -4,5 +4,5 @@ from . import PeeWeeBaseModel
 
 
 class Fund(PeeWeeBaseModel):
-    id = p.BigAutoField()
     totalamount = p.IntegerField()
+    editeddate = p.DateTimeField()

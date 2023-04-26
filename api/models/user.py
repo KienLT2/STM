@@ -4,10 +4,9 @@ from . import PeeWeeBaseModel
 
 
 class User(PeeWeeBaseModel):
-    id = p.BigAutoField(null=True)
     name = p.TextField()
     phonenumber = p.TextField()
     email = p.TextField()
     password = p.TextField()
     fund = p.IntegerField()
-    role = p.TextField(choices=['0', '1'])
+    role = p.TextField()

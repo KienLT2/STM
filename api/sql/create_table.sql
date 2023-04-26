@@ -26,10 +26,11 @@ CREATE TABLE IF NOT EXISTS "schedule"(
 
 CREATE TABLE IF NOT EXISTS "fund"(
     id bigserial not null primary key,
-    totalamount integer
+    totalamount integer,
+    editeddate timestamp
 );
 
 
-INSERT INTO "fund"(id, totalamount) values (1, 123456789);
+INSERT INTO "fund"(id, totalamount, editeddate) values (1, 123456789, '2016-06-22 19:10:25-07');
 
 

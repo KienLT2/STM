@@ -1,8 +1,6 @@
 from fastapi import APIRouter
 from models.fund import Fund
 
-from peewee import fn
-from playhouse.shortcuts import model_to_dict
 from pydantic import BaseModel
 
 router = APIRouter()
@@ -10,6 +8,7 @@ router = APIRouter()
 class Funds(BaseModel):
     id: int
     fund: int
+
 
 
 @router.get("/api/fund")

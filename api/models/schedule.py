@@ -5,8 +5,7 @@ from . import PeeWeeBaseModel
 from playhouse.postgres_ext import ArrayField
 
 
-class Positions(PeeWeeBaseModel):
-    id = p.BigAutoField(null=True)
+class Schedule(PeeWeeBaseModel):
     date = p.DateField()
     time = p.TimeField()
     fieldfee = p.IntegerField()
